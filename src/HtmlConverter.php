@@ -61,6 +61,11 @@ class HtmlConverter
 
         $document = $this->createDOMDocument($html);
 
+        return $this->convertDomDocument($document);
+    }
+
+    public function convertDomDocument(\DOMDocument $document)
+    {
         // Work on the entire DOM tree (including head and body)
         if (!($root = $document->getElementsByTagName('html')->item(0))) {
             throw new \InvalidArgumentException('Invalid HTML was provided');
